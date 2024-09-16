@@ -1,8 +1,8 @@
 import json
+import re
 
 def search_json(json_data, search_string):
     results = []
-    # Place your search code here
-    # you will have to loop through the json_data file you created earlier
-    # finally you can store the match in the result list and return it
+    search_pattern = re.compile(re.escape(search_string), re.IGNORECASE) 
+    results = [entry for entry in json_data if re.search(search_pattern, entry['User'])]
     return results
